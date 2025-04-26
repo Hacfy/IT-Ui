@@ -11,7 +11,6 @@ import {
 } from "@/components/ui/breadcrumb"
 import { Separator } from "@/components/ui/separator"
 import {
-  SidebarInset,
   SidebarProvider,
   SidebarTrigger,
 } from "@/components/ui/sidebar"
@@ -54,10 +53,10 @@ export default function Navbar({ children }: { children: React.ReactNode }) {
                           <BreadcrumbSeparator className="hidden md:block" />
                         )}
                         <BreadcrumbItem
-                          className={isLast ? "" : "hidden md:block"}
+                          className={isLast ? "" : "hidden md:block "}
                         >
                           {isLast ? (
-                            <BreadcrumbPage >{toTitleCase(segment)}</BreadcrumbPage>
+                            <BreadcrumbPage className="text-primary">{toTitleCase(segment)}</BreadcrumbPage>
                           ) : (
                             <BreadcrumbLink asChild >
                               <Link href={href}>{toTitleCase(segment)}</Link>

@@ -30,9 +30,14 @@ export function NavMain({
     items?: {
       title: string
       url: string
+      items?: {
+        title: string
+        url: string
+      }[]
     }[]
   }[]
 }) {
+
   return (
     <SidebarGroup>
       <SidebarGroupLabel>Platform</SidebarGroupLabel>
@@ -41,10 +46,10 @@ export function NavMain({
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
             <SidebarMenuItem>
               <SidebarMenuButton asChild tooltip={item.title}>
-                <a href={item.url}>
+                <span>
                   <item.icon />
                   <span>{item.title}</span>
-                </a>
+                </span>
               </SidebarMenuButton>
               {item.items?.length ? (
                 <>
@@ -57,13 +62,42 @@ export function NavMain({
                   <CollapsibleContent>
                     <SidebarMenuSub>
                       {item.items?.map((subItem) => (
-                        <SidebarMenuSubItem key={subItem.title}>
-                          <SidebarMenuSubButton asChild>
-                            <a href={subItem.url}>
-                              <span>{subItem.title}</span>
-                            </a>
-                          </SidebarMenuSubButton>
-                        </SidebarMenuSubItem>
+                        <Collapsible
+                          key={subItem.title}
+                          asChild
+                          defaultOpen={false}
+                        >
+                          <SidebarMenuSubItem>
+                            <SidebarMenuSubButton asChild>
+                              <a href={subItem.url}>
+                                <span>{subItem.title}</span>
+                              </a>
+                            </SidebarMenuSubButton>
+                            {subItem.items?.length ? (
+                              <>
+                                <CollapsibleTrigger asChild>
+                                  <SidebarMenuAction className="data-[state=open]:rotate-90">
+                                    <ChevronRight />
+                                    <span className="sr-only">Toggle</span>
+                                  </SidebarMenuAction>
+                                </CollapsibleTrigger>
+                                <CollapsibleContent>
+                                  <SidebarMenuSub>
+                                    {subItem.items.map((nestedItem) => (
+                                      <SidebarMenuSubItem key={nestedItem.title}>
+                                        <SidebarMenuSubButton asChild>
+                                          <a href={nestedItem.url}>
+                                            <span>{nestedItem.title}</span>
+                                          </a>
+                                        </SidebarMenuSubButton>
+                                      </SidebarMenuSubItem>
+                                    ))}
+                                  </SidebarMenuSub>
+                                </CollapsibleContent>
+                              </>
+                            ) : null}
+                          </SidebarMenuSubItem>
+                        </Collapsible>
                       ))}
                     </SidebarMenuSub>
                   </CollapsibleContent>

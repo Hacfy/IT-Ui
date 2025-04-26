@@ -36,64 +36,82 @@ const data = {
   },
   navMain: [
     {
-      title: "Playground",
+      title: "Manage College",
       url: "#",
       icon: SquareTerminal,
       isActive: true,
       items: [
         {
-          title: "History",
+          title: "Manage Hod",
           url: "#",
+          items: [
+            {
+              title: "Add Hod",
+              url: "/home/createHod",
+            },
+            {
+              title: "View All Hod",
+              url: "/home/viewHods",
+            }
+          ],
         },
         {
-          title: "Starred",
+          title: "Manage Department",
           url: "#",
+          items: [
+            {
+              title: "Add Department",
+              url: "/home/createDepartment",
+            },
+          ],
         },
         {
-          title: "Settings",
+          title: "Manage Lab",
           url: "#",
+          items: [
+            {
+              title: "Add Lab",
+              url: "/home/createLab",
+            },
+          ],
         },
       ],
-    },
+    }
+    ,
     {
-      title: "Models",
+      title: "Manage Warehouse",
       url: "#",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
+          title: "Manage Warehouse",
           url: "#",
+          items: [
+            {
+              title: "Create Warehouse",
+              url: "/home/createWarehosue",
+            }
+          ],
         },
         {
-          title: "Explorer",
+           title: "Create Components",
           url: "#",
+          items: [
+            {
+              title: "Add Components",
+              url: "/home/createDepartment",
+            },
+          ],
         },
         {
-          title: "Quantum",
+          title: "Create Staff",
           url: "#",
-        },
-      ],
-    },
-    {
-      title: "Documentation",
-      url: "#",
-      icon: BookOpen,
-      items: [
-        {
-          title: "Introduction",
-          url: "#",
-        },
-        {
-          title: "Get Started",
-          url: "#",
-        },
-        {
-          title: "Tutorials",
-          url: "#",
-        },
-        {
-          title: "Changelog",
-          url: "#",
+          items: [
+            {
+              title: "Add Staff",
+              url: "/home/createStaff",
+            },
+          ],
         },
       ],
     },
@@ -122,39 +140,30 @@ const data = {
     },
   ],
   navSecondary: [
-    {
-      title: "Support",
-      url: "#",
-      icon: LifeBuoy,
-    },
-    {
-      title: "Feedback",
-      url: "#",
-      icon: Send,
-    },
+    // {
+    //   title: "Support",
+    //   url: "#",
+    //   icon: LifeBuoy,
+    // },
+    // {
+    //   title: "Feedback",
+    //   url: "#",
+    //   icon: Send,
+    // },
   ],
   projects: [
-    {
-      name: "Design Engineering",
-      url: "#",
-      icon: Frame,
-    },
-    {
-      name: "Sales & Marketing",
-      url: "#",
-      icon: PieChart,
-    },
-    {
-      name: "Travel",
-      url: "#",
-      icon: Map,
-    },
+    // {
+    //   name: "Design Engineering",
+    //   url: "#",
+    //   icon: Frame,
+    // }
   ],
 }
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  
   return (
-    <Sidebar variant="inset" {...props}>
+    <Sidebar variant="sidebar" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>

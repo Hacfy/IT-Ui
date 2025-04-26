@@ -39,9 +39,11 @@ export function NavUser({
     avatar: string
   }
 }) {
-  const { isMobile } = useSidebar()
 
+  const { isMobile } = useSidebar()
+  
   return (
+    
     <SidebarMenu>
       <SidebarMenuItem>
         <DropdownMenu>
@@ -102,9 +104,9 @@ export function NavUser({
               </DropdownMenuItem>
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>
+            <DropdownMenuItem onClick={() => alert("Coming soon")}>
               <LogOut />
-              Log out
+              Logout
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

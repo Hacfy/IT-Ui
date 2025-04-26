@@ -1,3 +1,4 @@
+
 "use client"
 
 import { cn } from "@/lib/utils"
@@ -5,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-export function LoginForm({
+export function CreateWareHouseForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
@@ -18,34 +19,27 @@ function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   const email = formdata.get("email")
   const password = formdata.get("password")
   
-  
  
 }
 
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props} onSubmit={handleSubmit}>
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-bold">Login to your <span className="text-primary">account</span></h1>
+        <h1 className="text-2xl font-semibold">Create  <span className="text-primary">WareHouse</span></h1>
       </div>
       <div className="grid gap-6">
         <div className="grid gap-2">
-          <Label htmlFor="email">Email</Label>
-          <Input id="email" type="email" name="email" placeholder="Email" required />
+          <Label htmlFor="name">Name</Label>
+          <Input id="name" type="text" name="name" placeholder="Name" required />
         </div>
-        <div className="grid gap-2">
+        {/* <div className="grid gap-2">
           <div className="flex items-center">
-            <Label htmlFor="password">Password</Label>
-            <a
-              href="/forgotpassword"
-              className="ml-auto text-sm underline-offset-4 hover:underline"
-            >
-              Forgot your password?
-            </a>
+            <Label htmlFor="address">Hod</Label>
           </div>
-          <Input id="password" type="password" name="password" required placeholder="Password"/>
-        </div>
+          <Input id="address" type="text" name="address" required placeholder="Address" />
+        </div> */}
         <Button type="submit" className="w-full">
-          Login
+          Create
         </Button>
       </div>
     </form>
