@@ -8,35 +8,28 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
+import { userL2 } from "@/types/user.type";
 import { useRouter } from "next/navigation";
 
 import { useEffect, useState } from "react"
 
-interface Hod {
-    name: string;
-    department: string;
-    issues: string;
-    labs: string;
-}
 
-const deatils:Hod[] = [
 
-    { name: "Jayant Kumar", department: "CSD", issues: "0", labs: "2" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
-    { name: "Dathatraya", department: "ECE", issues: "3", labs: "4" },
+const deatils = [
+    { name: "Jayant Kumar", department_name: "CSD", issues: "0", workspaces: "2" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
+    { name: "Dathatraya", department_name: "ECE", issues: "3", workspaces: "4" },
 
 ];
-
-console.log(deatils[0].department.toLocaleLowerCase())
 
 
 export function ViewAllHods() {
@@ -48,7 +41,7 @@ export function ViewAllHods() {
 
     useEffect(() => {
         if (!deatils.length) {
-          router.push('/home/createHod')
+          router.push('/home/createHead')
         }
       }, [deatils])
 
@@ -59,7 +52,7 @@ export function ViewAllHods() {
     }
 
     const filteredHods = deatils.filter(hod =>
-        hod.department.toLowerCase().includes(searchTerm.toLowerCase())
+        hod.department_name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     const currentHods = filteredHods.slice(
         (currentPage - 1) * itemsPerPage,
@@ -98,8 +91,8 @@ export function ViewAllHods() {
     {currentHods.map((hod, index) => (
       <TableRow key={index} className="grid grid-cols-4 gap-0 w-full hover:bg-gray-50">
         <TableCell className="text-center p-3 border-b">{hod.name}</TableCell>
-        <TableCell className="text-center p-3 border-b">{hod.department}</TableCell>
-        <TableCell className="text-center p-3 border-b">{hod.labs}</TableCell>
+        <TableCell className="text-center p-3 border-b">{hod.department_name}</TableCell>
+        <TableCell className="text-center p-3 border-b">{hod.workspaces}</TableCell>
         <TableCell className="text-center p-3 border-b">{hod.issues}</TableCell>
       </TableRow>
     ))}

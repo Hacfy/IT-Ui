@@ -1,28 +1,23 @@
 "use client";
+
 import { usePathname } from "next/navigation";
 import Navbar from "@/components/navbar/navbar";
 
+const excludedPaths = new Set([
+  "/login",
+  "/forgotpassword",
+  "/forgotpassword/otp",
+  "/forgotpassword/newpassword",
+  "/selectBranch",
+  "/addBranch",
+]);
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
 
-  if (pathname === "/login") {
+  if (excludedPaths.has(pathname)) {
     return <>{children}</>;
   }
 
-  if (pathname === "/forgotpassword") {
-    return <>{children}</>;
-  }
-
-  if (pathname === "/forgotpassword/otp") {
-    return <>{children}</>;
-  }
-
-  if (pathname === "/forgotpassword/newpassword") {
-    return <>{children}</>;
-  }
-  
-    return (
-      <Navbar>{children}</Navbar>
-    )
+  return <Navbar>{children}</Navbar>;
 }

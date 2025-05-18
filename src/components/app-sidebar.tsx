@@ -1,23 +1,7 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import {
-  BookOpen,
-  Bot,
-  Command,
-  Frame,
-  LifeBuoy,
-  Map,
-  PieChart,
-  Send,
-  Settings2,
-  SquareTerminal,
-} from "lucide-react"
-
-import { NavMain } from "@/components/nav-main"
-import { NavProjects } from "@/components/nav-projects"
-import { NavSecondary } from "@/components/nav-secondary"
-import { NavUser } from "@/components/nav-user"
+import { NavMain } from "@/components/nav-main";
+import { NavUser } from "@/components/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -26,142 +10,36 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
-} from "@/components/ui/sidebar"
-
-const data = {
-  user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  navMain: [
-    {
-      title: "Manage College",
-      url: "#",
-      icon: SquareTerminal,
-      isActive: true,
-      items: [
-        {
-          title: "Manage Hod",
-          url: "#",
-          items: [
-            {
-              title: "Add Hod",
-              url: "/home/createHod",
-            },
-            {
-              title: "View All Hod",
-              url: "/home/viewHods",
-            }
-          ],
-        },
-        {
-          title: "Manage Department",
-          url: "#",
-          items: [
-            {
-              title: "Add Department",
-              url: "/home/createDepartment",
-            },
-          ],
-        },
-        {
-          title: "Manage Lab",
-          url: "#",
-          items: [
-            {
-              title: "Add Lab",
-              url: "/home/createLab",
-            },
-          ],
-        },
-      ],
-    }
-    ,
-    {
-      title: "Manage Warehouse",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Manage Warehouse",
-          url: "#",
-          items: [
-            {
-              title: "Create Warehouse",
-              url: "/home/createWarehosue",
-            }
-          ],
-        },
-        {
-           title: "Create Components",
-          url: "#",
-          items: [
-            {
-              title: "Add Components",
-              url: "/home/createDepartment",
-            },
-          ],
-        },
-        {
-          title: "Create Staff",
-          url: "#",
-          items: [
-            {
-              title: "Add Staff",
-              url: "/home/createStaff",
-            },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Settings",
-      url: "#",
-      icon: Settings2,
-      items: [
-        {
-          title: "General",
-          url: "#",
-        },
-        {
-          title: "Team",
-          url: "#",
-        },
-        {
-          title: "Billing",
-          url: "#",
-        },
-        {
-          title: "Limits",
-          url: "#",
-        },
-      ],
-    },
-  ],
-  navSecondary: [
-    // {
-    //   title: "Support",
-    //   url: "#",
-    //   icon: LifeBuoy,
-    // },
-    // {
-    //   title: "Feedback",
-    //   url: "#",
-    //   icon: Send,
-    // },
-  ],
-  projects: [
-    // {
-    //   name: "Design Engineering",
-    //   url: "#",
-    //   icon: Frame,
-    // }
-  ],
-}
+} from "@/components/ui/sidebar";
+import { super_admin, branch_head, department_head, workspace_head } from "@/lib/RbacManagement/navbarMangement";
+import { useMemo } from "react";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  
+  const userRole: string = "super_admin";
+
+  const User = {
+    user: {
+      name: "shadcn",
+      email: "m@example.com",
+      avatar: "/avatars/shadcn.jpg",
+    },
+  };
+
+  const navSource = useMemo(() => {
+    switch (userRole) {
+      case "super_admin":
+        return super_admin.navMain;
+      case "branch_head":
+        return branch_head.navMain;
+      case "department_head":
+        return department_head.navMain;
+      case "warehouse_head":
+        return workspace_head.navMain;
+      default:
+        return [];
+    }
+  }, [userRole]);
+
   return (
     <Sidebar variant="sidebar" {...props}>
       <SidebarHeader>
@@ -169,25 +47,22 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
-                {/* <div className="bg-sidebar-primary text-sidebar-primary-foreground flex aspect-square size-8 items-center justify-center rounded-lg">
-                  <Command className="size-4" />
-                </div> */}
-                <div className="grid  text-left text-sm leading-tight">
-                  <span className="truncate font-semibold text-xl text-primary">IT Inventory</span>
+                <div className="grid text-left text-sm leading-tight">
+                  <span className="truncate font-semibold text-xl text-primary">
+                    IT Inventory
+                  </span>
                 </div>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
-      <SidebarContent >
-        <NavMain items={data.navMain} />
-        <NavProjects projects={data.projects} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+      <SidebarContent>
+        <NavMain items={navSource} />
       </SidebarContent>
       <SidebarFooter>
-        <NavUser user={data.user} />
+        <NavUser user={User.user} />
       </SidebarFooter>
     </Sidebar>
-  )
+  );
 }

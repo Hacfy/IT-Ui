@@ -1,7 +1,7 @@
-import { CreateCollegeForm } from "@/components/College/College/createCollegForm"
-import { DetailsCard } from "@/components/homePage/detailsCard"
-import {  DeviceStatus } from "@/components/homePage/deviceStatusChart"
-import { IssuesChart } from "@/components/homePage/issuesChart"
+import { CreateCollegeForm } from "@/components/Panel/Branch/createCollegForm";
+import { DetailsCard } from "@/components/Panel/homePage/detailsCard";
+import { DeviceStatus } from "@/components/Panel/homePage/deviceStatusChart";
+import { IssuesChart } from "@/components/Panel/homePage/issuesChart";
 
 const data = {
   card1: {
@@ -36,10 +36,10 @@ const data = {
     title: "Not Working",
     total: 10,
   },
-}
+};
 
 export default function Home() {
-  const createCollege = false
+  const createCollege = false;
 
   if (createCollege) {
     return (
@@ -48,24 +48,20 @@ export default function Home() {
           <CreateCollegeForm className="shadow-lg rounded-md border border-gray-300 p-6 mt-28" />
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <div className="mx-5">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         {Object.values(data).map((item, index) => (
-          <DetailsCard
-            key={index}
-            title={item.title}
-            total={item.total}
-          />
+          <DetailsCard key={index} title={item.title} total={item.total} />
         ))}
       </div>
       <div className=" grid grid-cols-1 md:grid-cols-2  mt-6 gap-x-10">
-       <DeviceStatus/>
-       <IssuesChart />
+        <DeviceStatus />
+        <IssuesChart />
       </div>
     </div>
-  )
+  );
 }

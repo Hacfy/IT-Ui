@@ -1,5 +1,4 @@
-import { CreateDepartmentForm } from "@/components/College/Department/createDepartmentForm";
-
+import { CreateDepartmentForm } from "@/components/Panel/Department/createDepartmentForm";
 
 export default function Page() {
   return (
@@ -8,5 +7,5 @@ export default function Page() {
         <CreateDepartmentForm className="shadow-lg rounded-md border border-gray-300 p-6 mt-28" />
       </div>
     </div>
-  )
+  );
 }
