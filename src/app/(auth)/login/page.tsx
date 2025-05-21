@@ -26,7 +26,7 @@ export default function LoginPage() {
       <div className="relative hidden bg-muted lg:flex flex-col text-center justify-center ">
         <img
           src="/login-page-image.jpeg"
-          alt="Image"
+          alt="Images"
           className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
         />
       </div>
