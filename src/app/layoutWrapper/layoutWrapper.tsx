@@ -9,7 +9,7 @@ const excludedPaths = new Set([
   "/forgotpassword/otp",
   "/forgotpassword/newpassword",
   "/selectBranch",
-  "/addBranch",
+  "/createBranch",
 ]);
 
 export function LayoutWrapper({ children }: { children: React.ReactNode }) {

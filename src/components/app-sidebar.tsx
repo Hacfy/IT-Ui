@@ -11,7 +11,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { super_admin, branch_head, department_head, workspace_head } from "@/lib/RbacManagement/navbarMangement";
+import { super_admin, branch_head, department_head, warehouse_head } from "@/lib/RbacManagement/navbarMangement";
 import { useMemo } from "react";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
@@ -34,7 +34,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       case "department_head":
         return department_head.navMain;
       case "warehouse_head":
-        return workspace_head.navMain;
+        return warehouse_head.navMain;
       default:
         return [];
     }

@@ -15,7 +15,7 @@ export function SelectionModal({ isOpen, onClose }: SelectionModalProps) {
 
   function handleClick(route?: string) {
     if (route === "add") {
-      router.push("/home/createBranch");
+      router.push("/createBranch");
     } else if (route === "select") {
       router.push("/selectBranch");
     }

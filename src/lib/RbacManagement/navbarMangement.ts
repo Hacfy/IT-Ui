@@ -1,5 +1,4 @@
 import { Bot, Settings, Settings2, SquareTerminal } from "lucide-react";
-import { title } from "process";
 
 export const super_admin = {
   navMain: [
@@ -14,9 +13,14 @@ export const super_admin = {
           url: "#",
           items: [
             {
-              title: "View All Heads",
+              title: "View Dep_Heads",
               url: "/home/viewAllHeads",
             },
+            {
+              title: "View Branch_Heads",
+              url: "/home/viewAllHeads",
+            },
+            
           ],
         },
         {
@@ -53,16 +57,6 @@ export const super_admin = {
             {
               title: "View Warehouses",
               url: "/home/viewAllWarehosue",
-            },
-          ],
-        },
-        {
-          title: "Create Components",
-          url: "#",
-          items: [
-            {
-              title: "View Components",
-              url: "/home/viewAllComponent",
             },
           ],
         },
@@ -226,7 +220,7 @@ export const department_head = {
   ],
 };
 
-export const workspace_head = {
+export const warehouse_head = {
   navMain: [
     {
       title: "Manage Warehouse",

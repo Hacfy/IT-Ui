@@ -1,6 +1,6 @@
 "use client";
 
-import { LoginForm } from "@/components/login-form";
+import { LoginForm } from "@/components/Auth/login/login-form";
 import { SelectionModal } from "@/components/Auth/login/selectionModal";
 import { useState } from "react";
 

@@ -25,8 +25,8 @@ export default function SelectBranch() {
         </div>
         <Button
           className="font-semibold"
-          onClick={() => route.push("/addBranch")}
-        ></Button>
+          onClick={() => route.push("/createBranch")}
+        >Add Branch</Button>
       </div>
     );
   }
@@ -39,7 +39,7 @@ export default function SelectBranch() {
           Please Select{" "}
           <span className="text-primary font-semibold">Branch</span>
         </h1>
-        <Button className="font-semibold" onClick={() => route.push("/addBranch")}>
+        <Button className="font-semibold" onClick={() => route.push("/createBranch")}>
           Add Branch
         </Button>
       </div>
