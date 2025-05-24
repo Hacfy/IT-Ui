@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { HeadSelector } from "./headSelector";
 
 export function CreateHeadForm({
   className,
@@ -25,7 +26,7 @@ export function CreateHeadForm({
     >
       <div className="flex flex-col items-center gap-2 text-center">
         <h1 className="text-2xl font-semibold">
-          Create <span className="text-primary">Head</span>
+          Create  <span className="text-primary">Head</span>
         </h1>
       </div>
       <div className="grid gap-6">
@@ -40,16 +41,27 @@ export function CreateHeadForm({
           />
         </div>
         <div className="grid gap-2">
-          <div className="flex items-center">
-            <Label htmlFor="address">Head</Label>
-          </div>
+          <Label htmlFor="name">Email</Label>
           <Input
+            id="email"
+            type="email"
+            name="email"
+            placeholder="Email"
+            required
+          />
+        </div>
+        <div className="grid gap-2">
+          <div className="flex items-center">
+            <Label htmlFor="address">Department</Label>
+          </div>
+          {/* <Input
             id="address"
             type="text"
             name="address"
             required
             placeholder="Address"
-          />
+          /> */}
+          <HeadSelector />
         </div>
         <Button type="submit" className="w-full">
           Create

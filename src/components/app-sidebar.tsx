@@ -15,7 +15,7 @@ import { super_admin, branch_head, department_head, warehouse_head } from "@/lib
 import { useMemo } from "react";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const userRole: string = "super_admin";
+  const userRole: string = "branch_head";
 
   const User = {
     user: {
