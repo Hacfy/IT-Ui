@@ -13,14 +13,9 @@ export const super_admin = {
           url: "#",
           items: [
             {
-              title: "View Dep_Heads",
+              title: "View All Heads",
               url: "/home/viewAllHeads",
             },
-            {
-              title: "View Branch_Heads",
-              url: "/home/viewAllHeads",
-            },
-            
           ],
         },
         {
@@ -220,7 +215,7 @@ export const department_head = {
   ],
 };
 
-export const warehouse_head = {
+export const warehouse_users = {
   navMain: [
     {
       title: "Manage Warehouse",

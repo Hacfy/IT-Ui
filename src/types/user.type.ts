@@ -1,4 +1,4 @@
-export type RoleType = "super_admin" | "branch_head" | "department_head" | "warehouse_head"
+export type  RoleType = "super_admin" | "branch_head" | "department_head" | "warehouse_head"
 
 export interface superAdmin {
   id?: string;

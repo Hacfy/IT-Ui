@@ -1,7 +1,7 @@
 "use client";
 
-import { NavMain } from "@/components/nav-main";
-import { NavUser } from "@/components/nav-user";
+import { NavMain } from "@/components/navbar/nav-main";
+import { NavUser } from "@/components/navbar/nav-user";
 import {
   Sidebar,
   SidebarContent,
@@ -11,12 +11,23 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
-import { super_admin, branch_head, department_head, warehouse_head } from "@/lib/RbacManagement/navbarMangement";
+import {
+  super_admin,
+  branch_head,
+  department_head,
+  warehouse_users,
+} from "@/lib/RbacManagement/navbarMangement";
+import { userStore } from "@/types/redux/userStore";
 import { useMemo } from "react";
+import { useSelector } from "react-redux";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  const userRole: string = "branch_head";
+  // const userRole: string = useSelector(
+  //   (state: userStore) => state.user.user_type
+  // );
 
+   const userRole: string = "branch_head"
+   
   const User = {
     user: {
       name: "shadcn",
@@ -34,7 +45,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       case "department_head":
         return department_head.navMain;
       case "warehouse_head":
-        return warehouse_head.navMain;
+        return warehouse_users.navMain;
       default:
         return [];
     }

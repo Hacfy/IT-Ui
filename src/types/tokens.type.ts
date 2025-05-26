@@ -1,10 +1,10 @@
 import { RoleType } from "./user.type";
 
 export interface userToken {
-  id: string;
-  email: string;
+  user_id: string;
+  user_email: string;
   user_type: RoleType;
-  exp: number;
+  user_name:string  
 }
 
 export interface componentToken {
