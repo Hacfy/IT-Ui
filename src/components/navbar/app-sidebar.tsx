@@ -17,17 +17,14 @@ import {
   department_head,
   warehouse_users,
 } from "@/lib/RbacManagement/navbarMangement";
-import { userStore } from "@/types/redux/userStore";
+import { RootState } from "@/store/store";
 import { useMemo } from "react";
 import { useSelector } from "react-redux";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
-  // const userRole: string = useSelector(
-  //   (state: userStore) => state.user.user_type
-  // );
+  // const userRole : string | null = useSelector((state: RootState) => state.user.user_type);
+  const userRole: string | null = "branch_head";
 
-   const userRole: string = "branch_head"
-   
   const User = {
     user: {
       name: "shadcn",
@@ -37,6 +34,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   };
 
   const navSource = useMemo(() => {
+    if (!userRole) return [];
     switch (userRole) {
       case "super_admin":
         return super_admin.navMain;

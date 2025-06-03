@@ -2,10 +2,19 @@
 
 import { LoginForm } from "@/components/Auth/login/login-form";
 import { SelectionModal } from "@/components/Auth/login/selectionModal";
-import { useState } from "react";
+import { RootState } from "@/store/store";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function LoginPage() {
   const [isModalOpen, setModalOpen] = useState(false);
+  const userType = useSelector((state: RootState) => state.user.user_type);
+
+  useEffect(() => {
+    if (userType === "super_admin") {
+      setModalOpen(true);
+    }
+  }, [userType]);
 
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
@@ -14,9 +23,6 @@ export default function LoginPage() {
           <div className="w-full max-w-xs">
             <LoginForm />
           </div>
-          <button className="btn" onClick={() => setModalOpen(true)}>
-            Open Modal
-          </button>
           <SelectionModal
             isOpen={isModalOpen}
             onClose={() => setModalOpen(false)}

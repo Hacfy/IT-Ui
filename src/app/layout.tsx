@@ -3,7 +3,8 @@ import "./globals.css";
 import { LayoutWrapper } from "./layoutWrapper/layoutWrapper";
 import { metadata } from "./layoutWrapper/metadata";
 import { Toaster } from "sonner";
-import StoreProvider from "./  StoreProvider";
+import StoreProvider from "./StoreProvider";
+
 
 const poppins = Poppins({
   subsets: ["latin"],

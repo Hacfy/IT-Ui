@@ -1,15 +1,14 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { api, cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { setUser } from "@/store/User/userSlice";
 import useAuthToken from "@/hooks/token/getToken";
 import { useState } from "react";
 import { toast } from "sonner";
-import { userStore } from "@/types/redux/userStore";
 
 export function LoginForm({
   className,
@@ -18,7 +17,6 @@ export function LoginForm({
   const dispatch = useDispatch();
   const { decodedToken, tokenLoading } = useAuthToken();
   const [loading, setLoading] = useState<boolean>(false);
-  const userType = useSelector((state: userStore) => state.user.user_type);
 
   tokenLoading ? setLoading(true) : null;
 
@@ -31,13 +29,13 @@ export function LoginForm({
       const response = {
         message: "success",
       };
-      console.log(response.message);
+
       response.message === "success"
         ? dispatch(
             setUser({
               user_id: "123",
               user_email: "aniketh@example.com",
-              user_type: "branch_head",
+              user_type: "super_admin",
             })
           )
         : console.log("terney faliure");
@@ -46,8 +44,6 @@ export function LoginForm({
       console.error(error);
     }
   }
-
-  console.log(userType)
 
   return (
     <form

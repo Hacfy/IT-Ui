@@ -94,10 +94,6 @@ export const branch_head = {
           url: "#",
           items: [
             {
-              title: "Create Heads",
-              url: "/home/createHead",
-            },
-            {
               title: "View All Heads",
               url: "/home/viewAllHeads",
             },
