@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-export function CreateDepartmentForm({
+export function CreateWareHouseForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
@@ -25,12 +25,12 @@ export function CreateDepartmentForm({
     >
       <div className="flex flex-col items-center gap-2 text-center">
         <h1 className="text-2xl font-semibold">
-          Create <span className="text-primary">Department</span>
+          Create <span className="text-primary">WareHouse</span>
         </h1>
       </div>
       <div className="grid gap-6">
         <div className="grid gap-2">
-          <Label htmlFor="name">Name</Label>
+          <Label htmlFor="name">Warehouse Name</Label>
           <Input
             id="name"
             type="text"
@@ -40,27 +40,23 @@ export function CreateDepartmentForm({
           />
         </div>
         <div className="grid gap-2">
-          <div className="flex items-center">
-            <Label htmlFor="head">Head Name</Label>
-          </div>
+          <Label htmlFor="name">Head Name </Label>
           <Input
-            id="head"
+            id="name"
             type="text"
-            name="head"
+            name="name"
+            placeholder="Name"
             required
-            placeholder="Head "
           />
         </div>
         <div className="grid gap-2">
-          <div className="flex items-center">
-            <Label htmlFor="address">Head Email</Label>
-          </div>
+          <Label htmlFor="name">Head Email</Label>
           <Input
-            id="headEmail"
+            id="email"
             type="text"
-            name="headEmail"
-            required
+            name="email"
             placeholder="Email"
+            required
           />
         </div>
         <Button type="submit" className="w-full font-semibold text-md">

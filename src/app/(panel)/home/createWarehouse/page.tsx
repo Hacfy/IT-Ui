@@ -1,4 +1,4 @@
-import { CreateWareHouseForm } from "@/components/Warehouse/craeteWareHose";
+import { CreateWareHouseForm } from "@/components/Panel/Warehouse/createWarehouseForm";
 
 export default function Page() {
   return (

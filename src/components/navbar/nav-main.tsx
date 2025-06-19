@@ -89,9 +89,11 @@ export function NavMain({
                                     {subItem.items.map((nestedItem) => (
                                       <SidebarMenuSubItem key={nestedItem.title}>
                                         <SidebarMenuSubButton asChild>
+                                            
                                           <a href={nestedItem.url}>
                                             <span>{nestedItem.title}</span>
                                           </a>
+                                          
                                         </SidebarMenuSubButton>
                                       </SidebarMenuSubItem>
                                     ))}

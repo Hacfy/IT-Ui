@@ -15,7 +15,7 @@ import {
   super_admin,
   branch_head,
   department_head,
-  warehouse_users,
+  warehouse_head,
 } from "@/lib/RbacManagement/navbarMangement";
 import { RootState } from "@/store/store";
 import { useMemo } from "react";
@@ -23,7 +23,7 @@ import { useSelector } from "react-redux";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   // const userRole : string | null = useSelector((state: RootState) => state.user.user_type);
-  const userRole: string | null = "branch_head";
+  const userRole: string | null = "super_admin";
 
   const User = {
     user: {
@@ -43,7 +43,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       case "department_head":
         return department_head.navMain;
       case "warehouse_head":
-        return warehouse_users.navMain;
+        return warehouse_head.navMain;
       default:
         return [];
     }

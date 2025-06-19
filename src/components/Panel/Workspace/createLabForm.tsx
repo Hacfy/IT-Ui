@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-export function CreateLabForm({
+export function CreateWorkSpaceForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"form">) {
@@ -22,7 +22,7 @@ function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   return (
     <form className={cn("flex flex-col gap-6", className)} {...props} onSubmit={handleSubmit}>
       <div className="flex flex-col items-center gap-2 text-center">
-        <h1 className="text-2xl font-semibold">Create  <span className="text-primary">Lab</span></h1>
+        <h1 className="text-2xl font-semibold">Create  <span className="text-primary">Workspace</span></h1>
       </div>
       <div className="grid gap-6">
         <div className="grid gap-2">
@@ -31,12 +31,12 @@ function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         </div>
         <div className="grid gap-2">
           <div className="flex items-center">
-            <Label htmlFor="address">Hod</Label>
+            <Label>Department</Label>
           </div>
-          <Input id="address" type="text" name="address" required placeholder="Address" />
+          <Input id="department" type="text" name="department" required placeholder="Department" />
         </div>
-        <Button type="submit" className="w-full">
-          Login
+        <Button type="submit" className="w-full font-semibold text-md">
+          Create
         </Button>
       </div>
     </form>

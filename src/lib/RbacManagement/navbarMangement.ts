@@ -19,14 +19,14 @@ export const super_admin = {
           ],
         },
         {
-          title: "Manage Department",
-          url: "#",
-          items: [
-            {
-              title: "View All Department",
-              url: "/home/viewAllDepartment",
-            },
-          ],
+          title: "View All Department",
+          url: "/home/viewAllDepartment",
+          // items: [
+          //   {
+          //     title: "View All Department",
+          //     url: "/home/viewAllDepartment",
+          //   },
+          // ],
         },
         {
           title: "Manage Workspace",
@@ -104,10 +104,6 @@ export const branch_head = {
           url: "#",
           items: [
             {
-              title: "Create Department",
-              url: "/home/createDepartment",
-            },
-            {
               title: "View All Department",
               url: "/home/viewAllDepartment",
             },
@@ -117,6 +113,10 @@ export const branch_head = {
           title: "Manage Workspace",
           url: "#",
           items: [
+            {
+              title: "Create Workspaces",
+              url: "/home/createWorkspace",
+            },
             {
               title: "View Workspaces",
               url: "/home/viewAllWorkspace",
@@ -136,7 +136,7 @@ export const branch_head = {
           items: [
             {
               title: "Create Warehouse",
-              url: "/home/createWarehosue",
+              url: "/home/createWarehouse",
             },
             {
               title: "View Warehouses",
@@ -211,7 +211,7 @@ export const department_head = {
   ],
 };
 
-export const warehouse_users = {
+export const warehouse_head = {
   navMain: [
     {
       title: "Manage Warehouse",
@@ -229,12 +229,16 @@ export const warehouse_users = {
           ],
         },
         {
-          title: "View Components",
+          title: "Manage Components",
           url: "#",
           items: [
             {
-              title: "Add Component",
-              url: "/home/createWarehosue",
+              title: "Create Category",
+              url: "/home/createCategory",
+            },
+            {
+              title: "Create Unit",
+              url: "/home/createUnit",
             },
             {
               title: "View Component",
