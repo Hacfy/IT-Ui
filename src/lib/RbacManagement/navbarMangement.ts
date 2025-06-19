@@ -9,54 +9,36 @@ export const super_admin = {
       isActive: true,
       items: [
         {
-          title: "Manage Heads",
-          url: "#",
-          items: [
-            {
-              title: "View All Heads",
-              url: "/home/viewAllHeads",
-            },
-          ],
-        },
-        {
           title: "View All Department",
           url: "/home/viewAllDepartment",
-          // items: [
-          //   {
-          //     title: "View All Department",
-          //     url: "/home/viewAllDepartment",
-          //   },
-          // ],
         },
         {
-          title: "Manage Workspace",
-          url: "#",
-          items: [
-            {
-              title: "View Workspaces",
-              url: "/home/viewAllWorkspace",
-            },
-          ],
+          title: "View All Workspace",
+          url: "/home/viewAllWorkspace",
+        },
+        {
+          title: "View  Warehouse",
+          url: "/home/viewAllWarehosue",
         },
       ],
     },
-    {
-      title: "Manage Warehouse",
-      url: "#",
-      icon: Bot,
-      items: [
-        {
-          title: "Manage Warehouse",
-          url: "#",
-          items: [
-            {
-              title: "View Warehouses",
-              url: "/home/viewAllWarehosue",
-            },
-          ],
-        },
-      ],
-    },
+    // {
+    //   title: "Manage Warehouse",
+    //   url: "#",
+    //   icon: Bot,
+    //   items: [
+    //     {
+    //       title: "Manage Warehouse",
+    //       url: "#",
+    //       items: [
+    //         {
+    //           title: "View Warehouses",
+    //           url: "/home/viewAllWarehosue",
+    //         },
+    //       ],
+    //     },
+    //   ],
+    // },
     {
       title: "Change Branch",
       url: "/selectBranch",
