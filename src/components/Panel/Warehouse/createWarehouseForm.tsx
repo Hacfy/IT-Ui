@@ -21,11 +21,11 @@ export function CreateWareHouseForm({
     <form
       className={cn("flex flex-col gap-6", className)}
       {...props}
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit} 
     >
       <div className="flex flex-col items-center gap-2 text-center">
         <h1 className="text-2xl font-semibold">
-          Create <span className="text-primary">WareHouse</span>
+          Create <span className="text-primary">Warehouse</span>
         </h1>
       </div>
       <div className="grid gap-6">

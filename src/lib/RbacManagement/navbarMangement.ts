@@ -4,7 +4,7 @@ export const super_admin = {
   navMain: [
     {
       title: "Branch Management",
-      url: "#",
+      url: "/home",
       icon: SquareTerminal,
       isActive: true,
       items: [
@@ -18,7 +18,7 @@ export const super_admin = {
         },
         {
           title: "View  Warehouse",
-          url: "/home/viewAllWarehosue",
+          url: "/home/viewWarehouse",
         },
       ],
     },
@@ -71,16 +71,16 @@ export const branch_head = {
       icon: SquareTerminal,
       isActive: true,
       items: [
-        {
-          title: "Manage Heads",
-          url: "#",
-          items: [
-            {
-              title: "View All Heads",
-              url: "/home/viewAllHeads",
-            },
-          ],
-        },
+        // {
+        //   title: "Manage Heads",
+        //   url: "#",
+        //   items: [
+        //     {
+        //       title: "View All Heads",
+        //       url: "/home/viewAllHeads",
+        //     },
+        //   ],
+        // },
         {
           title: "Manage Department",
           url: "#",
@@ -89,16 +89,16 @@ export const branch_head = {
               title: "View All Department",
               url: "/home/viewAllDepartment",
             },
+            {
+              title: "Create Department",
+              url: "/home/createDepartment",
+            },
           ],
         },
         {
           title: "Manage Workspace",
           url: "#",
           items: [
-            {
-              title: "Create Workspaces",
-              url: "/home/createWorkspace",
-            },
             {
               title: "View Workspaces",
               url: "/home/viewAllWorkspace",
@@ -113,22 +113,12 @@ export const branch_head = {
       icon: Bot,
       items: [
         {
-          title: "Manage Warehouse",
-          url: "#",
-          items: [
-            {
-              title: "Create Warehouse",
-              url: "/home/createWarehouse",
-            },
-            {
-              title: "View Warehouses",
-              url: "/home/viewAllWarehosue",
-            },
-          ],
+          title: "Create Warehouse",
+          url: "/home/createWarehouse",
         },
         {
-          title: "View Components",
-          url: "/home/viewAllComponent",
+          title: "View Warehouses",
+          url: "/home/viewWarehouse",
         },
       ],
     },
@@ -169,6 +159,14 @@ export const department_head = {
             },
             {
               title: "View Workspaces",
+              url: "/home/viewAllWorkspace",
+            },
+            {
+              title: "Add Components",
+              url: "/home/createComponents",
+            },
+            {
+              title: "Raise Issue",
               url: "/home/viewAllWorkspace",
             },
           ],

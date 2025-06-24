@@ -4,14 +4,19 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { CategorySelect } from "../Warehouse/selectCategory";
+
+type CreateUnitFormProps = React.ComponentPropsWithoutRef<"form"> & {
+  switchToCategoryForm?: () => void;
+};
 
 export function CreateUnitForm({
   className,
+  switchToCategoryForm,
   ...props
-}: React.ComponentPropsWithoutRef<"form">) {
+}: CreateUnitFormProps) {
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    console.log("submitted");
 
     const formdata = new FormData(e.currentTarget);
     const email = formdata.get("email");
@@ -38,14 +43,20 @@ export function CreateUnitForm({
             placeholder="Name"
             required
           />
-        </div>  
+        </div>
         <div className="grid gap-2">
-          <Label htmlFor="name">Name</Label>
-          np
-        </div>           
+          <Label htmlFor="name">Select Category</Label>
+          <CategorySelect />
+        </div>
         <Button type="submit" className="w-full font-semibold text-md">
           Create
         </Button>
+        <div
+          className="text-sm  text-blue-600 hover:text-blue-700 text-center cursor-pointer"
+          onClick={switchToCategoryForm}
+        >
+          Create Category
+        </div>
       </div>
     </form>
   );

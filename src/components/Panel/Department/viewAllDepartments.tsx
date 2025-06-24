@@ -1,18 +1,9 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import {
-  Table,
-  TableBody,
-  TableCell,
-  TableFooter,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import { Ellipsis } from "lucide-react";
-import { use, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { DropdownMenuDemo } from "./departmentDropdown";
+import UseLoader from "@/components/Loader/UseAbleLoader";
 
 const invoices = [
   {
@@ -63,6 +54,7 @@ const ITEMS_PER_PAGE = 10;
 
 export function ViewAllDepartmentsTable() {
   const [currentPage, setCurrentPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
   const [items, setItems] = useState<any>([]);
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const totalPages = Math.ceil(invoices.length / ITEMS_PER_PAGE);
@@ -71,10 +63,14 @@ export function ViewAllDepartmentsTable() {
     setItems(invoices.slice(startIndex, startIndex + ITEMS_PER_PAGE));
   }, [currentPage]);
 
+  if (loading) {
+    return <UseLoader />;
+  }
+
   return (
     <div className="overflow-x-auto">
       <table className="table ">
-        <thead >
+        <thead>
           <tr className="text-primary ">
             <th></th>
             <th>Head Name</th>

@@ -62,3 +62,10 @@ export interface UpdateUnitWarentyDate {
   u_id: string;
   e_days: string;
 }
+
+export interface Warehouse {
+  id?: string;
+  w_id?: number;
+  name: string;
+  b_id: number; 
+}

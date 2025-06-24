@@ -1,7 +1,12 @@
-import { branch } from "@/types/general.type";
-import { Card, CardHeader, CardTitle, CardDescription } from "../ui/card";
+import {
+  Card,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Warehouse } from "@/types/general.type";
 
-export function SelectCard({ data }: { data: branch[] }) {
+export function SelectWarehouseCard({ data }: { data: Warehouse[] }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 px-10 mt-20 place-items-center ">
       {data.map((item) => (
@@ -10,12 +15,9 @@ export function SelectCard({ data }: { data: branch[] }) {
           className="w-full max-w-xs min-h-[180px] flex flex-col justify-center hover:scale-102 transition-all duration-300 ease-in-out hover:border-primary "
         >
           <CardHeader className="text-center">
-            <CardTitle className="text-xl md:text-2xl font-medium text-primary">
-              {item.location}
-            </CardTitle>
-            <CardDescription className="text-sm  md:text-base text-gray-500 mt-1 capitalize text-balance">
+            <CardTitle className="text-xl md:text-2xl font-semibold text-primary">
               {item.name}
-            </CardDescription>
+            </CardTitle>
           </CardHeader>
         </Card>
       ))}
