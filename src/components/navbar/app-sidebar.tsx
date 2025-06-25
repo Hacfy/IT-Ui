@@ -23,7 +23,7 @@ import { useSelector } from "react-redux";
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   // const userRole : string | null = useSelector((state: RootState) => state.user.user_type);
-  const userRole: string | null = "department_head";
+  const userRole: string | null = "warehouse_head";
 
   const User = {
     user: {

@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { ChevronRight, type LucideIcon } from "lucide-react"
+import { ChevronRight, type LucideIcon } from "lucide-react";
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "@/components/ui/collapsible"
+} from "@/components/ui/collapsible";
 import {
   SidebarGroup,
   SidebarGroupLabel,
@@ -17,27 +17,30 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "@/components/ui/sidebar"
-import Link from "next/link"
+} from "@/components/ui/sidebar";
+import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 
 export function NavMain({
   items,
 }: {
   items: {
-    title: string
-    url: string
-    icon: LucideIcon
-    isActive?: boolean
+    title: string;
+    url: string;
+    icon: LucideIcon;
+    isActive?: boolean;
     items?: {
-      title: string
-      url: string
+      title: string;
+      url: string;
       items?: {
-        title: string
-        url: string
-      }[]
-    }[]
-  }[]
+        title: string;
+        url: string;
+      }[];
+    }[];
+  }[];
 }) {
+  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <SidebarGroup>
@@ -47,12 +50,12 @@ export function NavMain({
           <Collapsible key={item.title} asChild defaultOpen={item.isActive}>
             <SidebarMenuItem>
               <Link href={item.url}>
-              <SidebarMenuButton asChild tooltip={item.title} >
-                <span>
-                  <item.icon />
-                  <span>{item.title}</span>
-                </span>
-              </SidebarMenuButton>
+                <SidebarMenuButton asChild tooltip={item.title}>
+                  <span>
+                    <item.icon />
+                    <span>{item.title}</span>
+                  </span>
+                </SidebarMenuButton>
               </Link>
               {item.items?.length ? (
                 <>
@@ -72,9 +75,16 @@ export function NavMain({
                         >
                           <SidebarMenuSubItem>
                             <SidebarMenuSubButton asChild>
-                              <a href={subItem.url}>
-                                <span>{subItem.title}</span>
-                              </a>
+                              <div
+                                onClick={() => {
+                                  if (pathname !== subItem.url) {
+                                    console.log(pathname,subItem.url)
+                                    router.replace(subItem.url);
+                                  }
+                                }}
+                              >
+                                {subItem.title}
+                              </div>
                             </SidebarMenuSubButton>
                             {subItem.items?.length ? (
                               <>
@@ -87,13 +97,13 @@ export function NavMain({
                                 <CollapsibleContent>
                                   <SidebarMenuSub>
                                     {subItem.items.map((nestedItem) => (
-                                      <SidebarMenuSubItem key={nestedItem.title}>
+                                      <SidebarMenuSubItem
+                                        key={nestedItem.title}
+                                      >
                                         <SidebarMenuSubButton asChild>
-                                            
                                           <a href={nestedItem.url}>
                                             <span>{nestedItem.title}</span>
                                           </a>
-                                          
                                         </SidebarMenuSubButton>
                                       </SidebarMenuSubItem>
                                     ))}
@@ -113,5 +123,5 @@ export function NavMain({
         ))}
       </SidebarMenu>
     </SidebarGroup>
-  )
+  );
 }

@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 export default function CreateComponentsPage() {
   const [isModalOpen, setModalOpen] = useState(true);
   // const userRole : string | null = useSelector((state: RootState) => state.user.user_type);
-  const userRole: string | null = "department_head";
+  const userRole: string | null = "warehouse_head";
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {

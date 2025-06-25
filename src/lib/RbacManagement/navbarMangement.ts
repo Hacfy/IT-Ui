@@ -199,32 +199,16 @@ export const warehouse_head = {
       icon: Bot,
       items: [
         {
-          title: "Manage Warehouse",
-          url: "#",
-          items: [
-            {
-              title: "View Warehouses",
-              url: "/home/viewAllWarehosue",
-            },
-          ],
+          title: "View Warehouse",
+          url: "/home",
         },
         {
-          title: "Manage Components",
-          url: "#",
-          items: [
-            {
-              title: "Create Category",
-              url: "/home/createCategory",
-            },
-            {
-              title: "Create Unit",
-              url: "/home/createUnit",
-            },
-            {
-              title: "View Component",
-              url: "/home/viewAllComponents",
-            },
-          ],
+          title: "Create Components",
+          url: "/home/createComponents",
+        },
+        {
+          title: "Create Warehouse",
+          url: "/home/createWarehouse",
         },
       ],
     },
